@@ -13,8 +13,7 @@ export async function createUser(user: CreateUserParams) {
 		await connectToDatabase();
 
 		const newUser = await User.create(user);
-		redirect("/");
-		return JSON.parse(JSON.stringify(newUser));
+		return JSON.parse(JSON.stringify(newUser)), redirect("/");
 	} catch (error) {
 		handleError(error);
 	}
