@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import User from "../database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
-import router from "next/router";
+import { redirect } from "next/navigation";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
@@ -13,7 +13,7 @@ export async function createUser(user: CreateUserParams) {
 		await connectToDatabase();
 
 		const newUser = await User.create(user);
-		router.push("/");
+		redirect("/");
 		return JSON.parse(JSON.stringify(newUser));
 	} catch (error) {
 		handleError(error);
