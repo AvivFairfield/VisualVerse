@@ -16,6 +16,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 				<h1 className="home-heading">
 					Unleash Your Creative Vision with VisualVerse
 				</h1>
+				<h2 className="home-heading">By Aviv Cohen</h2>
 				<ul className="flex-center w-full gap-20">
 					{navLinks.slice(1, 5).map((link) => (
 						<Link
